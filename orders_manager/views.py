@@ -15,11 +15,11 @@ class OrderView(View):
     template_name = 'order.html'
 
     def get(self, request):
-        # если нет аутенфикации, то редирект на форму авторизации
+        # если нет аутентификации, то редирект на форму авторизации
         if request.user.is_anonymous:
             return redirect('/accounts/login')
         else:
-            # если зашли как админ, то отобразить форму фильтрации админа и весь список заказов
+            # если зашли как администратор, то отобразить форму фильтрации админа и весь список заказов
             if request.user.is_superuser:
                 form = AdminFilterForm()
                 orders = Order.objects.all()
