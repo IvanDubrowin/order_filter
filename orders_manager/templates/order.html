@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Orders</title>
+</head>
+<body>
+  <div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Фильтр</button>
+    </form>
+  </div>
+  <div>
+    {% for order in orders %}
+      <h3>Агент: {{ order.agent }}</h3>
+      <h3>ИНН: {{ order.agent.number_inn}}</h3>
+      <h3>Номер заказа: {{ order.number_order }}</h3>
+      <h3>Цена: {{ order.price }}</h3>
+      <h3>Дата заказа: {{ order.date }}</h3>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <h3><a href="{% url 'logout' %}?next={{ request.path | urlencode }}">выйти</a></h3>
+    {% endif %}
+  </div>
+</body>
+</html>

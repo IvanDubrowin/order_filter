@@ -1,0 +1,12 @@
+
+db\.sqlite3
+
+*.pyc
+
+orders_manager/migrations/0002_auto_20181008_1817\.py
+
+orders_manager/migrations/0003_auto_20181008_2054\.py
+
+orders_manager/migrations/0004_auto_20181008_2055\.py
+
+orders_manager/migrations/0001_initial\.py
