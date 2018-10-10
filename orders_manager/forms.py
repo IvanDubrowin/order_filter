@@ -16,7 +16,7 @@ class AgentCreationForm(UserCreationForm):
 
 # создаем список ИНН по модели Agent и передаем их в выбор форм
 class AdminFilterForm(forms.Form):
-    query = queryset=Agent.objects.values_list('number_inn',flat=True)
+    query = Agent.objects.values_list('number_inn',flat=True)
     query_choices = [('all', 'Все записи')] + [(id, id) for id in query]
     number_inn = forms.ChoiceField(
                             choices=query_choices,
